@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/** Login / Logout / Register (MVC Controller). Business logic AuthService එකේ. */
 @WebServlet(name = "AuthServlet",
         urlPatterns = {AppConstants.PATH_LOGIN, AppConstants.PATH_LOGOUT, AppConstants.PATH_REGISTER})
 public class AuthServlet extends HttpServlet {
@@ -49,7 +48,6 @@ public class AuthServlet extends HttpServlet {
         }
     }
 
-    // ------------------------------------------------------------------ login
 
     private void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
@@ -75,7 +73,6 @@ public class AuthServlet extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + AppConstants.PATH_LOGIN_PAGE + "?logout=1");
     }
 
-    /** Session fixation වළක්වන්න පරණ session එක අවලංගු කර අලුත් එකක් හදයි. */
     private void startSession(HttpServletRequest req, LoggedInUser user) {
         HttpSession old = req.getSession(false);
         if (old != null) {
@@ -94,7 +91,6 @@ public class AuthServlet extends HttpServlet {
         req.getRequestDispatcher(AppConstants.PATH_LOGIN_PAGE).forward(req, resp);
     }
 
-    // --------------------------------------------------------------- register
 
     private void register(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RegistrationForm form = readRegistrationForm(req);

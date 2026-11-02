@@ -26,7 +26,6 @@ public class UserDAO extends BaseDAO<User> {
         return existsByField("email", email);
     }
 
-    /** field නම පැමිණෙන්නේ ඉහත public methods වලින් පමණි (user input නොවේ). */
     private boolean existsByField(String field, String value) {
         return read(session -> session
                 .createQuery("select count(u) from User u where u." + field + " = :value", Long.class)
@@ -34,8 +33,6 @@ public class UserDAO extends BaseDAO<User> {
                 .getSingleResult() > 0);
     }
 
-    // ---- dao/UserDAO.java : මේ method එක එකතු කරන්න (import: UserRole)
-    /** Role එකට අදාළ පළමු active user (complaint assignee ලෙස). */
     public Optional<User> findFirstActiveByRole(UserRole role) {
         return read(session -> session
                 .createQuery("from User u where u.role = :role and u.active = true order by u.id", User.class)
