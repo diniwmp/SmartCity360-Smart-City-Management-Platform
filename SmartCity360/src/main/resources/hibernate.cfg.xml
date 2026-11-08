@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "https://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/smartcity360?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=Asia/Colombo</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">dbpw</property>
+
+        <property name="hibernate.hikari.maximumPoolSize">10</property>
+
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.physical_naming_strategy">org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy</property>
+
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Entities -->
+        <mapping class="com.urbantech.smartcity360.model.User"/>
+        <mapping class="com.urbantech.smartcity360.model.ZoneEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.EnergyMeterEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.EnergyReadingEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.ComplaintEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.ComplaintHistoryEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.StreetlightSpecEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.StreetlightEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.PolicyEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.PolicyVersionEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.SensorEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.SensorReadingEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.WasteBinEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.CollectionRouteEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.NotificationEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.AuditLogEntity"/>
+        <mapping class="com.urbantech.smartcity360.model.StateSnapshotEntity"/>
+    </session-factory>
+</hibernate-configuration>
